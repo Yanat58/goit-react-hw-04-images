@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 import css from './ImageGallery.module.css';
 
-function ImageGallery({ images, openModal }) {
+function ImageGallery({ images }) {
   return (
     <ul className={css.container}>
       {images.map(({ description, smallImage, largeImage }, index) => (
@@ -11,7 +11,6 @@ function ImageGallery({ images, openModal }) {
           description={description}
           smallImage={smallImage}
           largeImage={largeImage}
-          openModal={openModal}
         />
       ))}
     </ul>
@@ -21,7 +20,6 @@ function ImageGallery({ images, openModal }) {
 ImageGallery.prototype = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
       description: PropTypes.string,
       smallImage: PropTypes.string.isRequired,
       largeImage: PropTypes.string.isRequired,
